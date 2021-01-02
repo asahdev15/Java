@@ -1,4 +1,4 @@
-package datastructures.stack;
+package datastructures.stacks;
 
 public class StackLinkedListTest<T> {
 

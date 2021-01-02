@@ -7,15 +7,12 @@ import java.util.Map;
 
 public class LinkedList {
 
-
 	public static void main(String args[]) {
-
 		List<Character> list = new java.util.LinkedList<>();
 		list.add(0,'a');
 		list.add(0,'a');
 		System.out.println(list);
 	}
-
 
 	private Node reverseList(Node head, int start, int end){
 		int size = getSize(head);
@@ -68,11 +65,6 @@ public class LinkedList {
 		}
 		return size;
 	}
-
-
-
-
-
 
 	public static boolean isEmpty(Node head) {
 		return head == null;

@@ -9,7 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class ListTest {
 
     public static void main(String[] args) {
-        copyOnWriteArrayList();
+        circularArrayList();
     }
 
     private static void arrayList(){
@@ -74,6 +74,41 @@ public class ListTest {
 
     }
 
+
+    private static void circularArrayList(){
+        List<String> items = new CircularArrayList<>();
+        items.add("A");
+        items.add("B");
+        items.add("C");
+        items.add("D");
+        items.add("E");
+        items.add("F");
+        System.out.println(items.toString());
+        for(int i = 12; i<=17 ; i++){
+            System.out.println(items.get(i));
+        }
+
+    }
+
+    /*
+
+     A  B  C  D  E  F
+     0  1  2  3  4  5
+     6  7  8  9 10 11
+    12 13 14 15 16 17
+
+     */
+
+
+    static class CircularArrayList<E> extends ArrayList<E>
+    {
+        private static final long serialVersionUID = 1L;
+
+        public E get(int index)
+        {
+            return super.get(index % size());
+        }
+    }
 
 
 }

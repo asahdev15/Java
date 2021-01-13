@@ -12,6 +12,8 @@ public class ArraysTest {
         int[] a = new int[10];
         System.out.println(Arrays.toString(a));
 
+        int[][] arr = {{0,0,0},{0,1,1}};
+        System.out.println(Arrays.deepToString(arr));
 
     }
 

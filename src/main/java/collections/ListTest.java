@@ -91,15 +91,12 @@ public class ListTest {
     }
 
     /*
-
      A  B  C  D  E  F
      0  1  2  3  4  5
      6  7  8  9 10 11
     12 13 14 15 16 17
-
+    ....
      */
-
-
     static class CircularArrayList<E> extends ArrayList<E>
     {
         private static final long serialVersionUID = 1L;

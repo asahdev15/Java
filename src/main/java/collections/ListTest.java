@@ -22,6 +22,7 @@ public class ListTest {
         list.remove("4");
         list.remove(0);
         System.out.println(list.toString());
+
     }
 
     private static void linkedList(){

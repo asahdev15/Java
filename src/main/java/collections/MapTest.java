@@ -7,25 +7,42 @@ public class MapTest {
 
     public static void main(String[] args) {
 
-        treeMapTest();
+        hashMapTest();
 
     }
 
-    // does NOT maintains insertion order
     private static void hashMapTest(){
-        System.out.println("\nhashMapTest");
+        System.out.println("\n-- hashMapTest -- \n");
         Map<String, String> map = new HashMap<>();
         map.put("D", "4");
         map.put("C", "3");
         map.put("A", "1");
-        map.put("B", "2");
+        map.putIfAbsent("B", "2");
         map.put(null, "null");
         System.out.println(map);
+        System.out.println("------------------");
+        System.out.println(map.isEmpty());
+        System.out.println(map.size());
+        System.out.println(map.containsKey("C"));
+        System.out.println(map.get("C"));
+        System.out.println(map.getOrDefault("X", "NA"));
+        System.out.println(map.remove("C"));
+
+        System.out.println("------------------");
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.print("(" + entry.getKey() + "," + entry.getValue() + ") ");
+        }
+        System.out.println("------------------");
         Iterator<String> it2 = map.keySet().iterator();
         while(it2.hasNext()){
             String k = it2.next();
             System.out.println(k + " " + map.get(k));
         }
+        System.out.println("------------------");
+        System.out.println(map.keySet());
+        System.out.println(map.values());
+        map.clear();
+        System.out.println(map);
     }
 
     // maintains insertion order

@@ -1,4 +1,4 @@
-package xalgorithms;
+package xalgorithms.sorting;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -22,10 +22,10 @@ public class SortingTest {
 //        System.out.println("Selection Sort Time taken = " + (end6 - start6));
 //
 //        input = getRandomArray();
-        long start3 = System.currentTimeMillis();
-        insertionSort(input);
-        long end3 = System.currentTimeMillis();
-        System.out.println("Insertion Sort Time taken = " + (end3 - start3));
+//        long start3 = System.currentTimeMillis();
+//        insertionSort(input);
+//        long end3 = System.currentTimeMillis();
+//        System.out.println("Insertion Sort Time taken = " + (end3 - start3));
 
 //        input = getRandomArray();
 //        long start2 = System.currentTimeMillis();
@@ -34,10 +34,10 @@ public class SortingTest {
 //        System.out.println("Merge Sort Time taken = " + (end2 - start2));
 //
 //        input = getRandomArray();
-//        long start4 = System.currentTimeMillis();
-//        heapSort(input);
-//        long end4 = System.currentTimeMillis();
-//        System.out.println("Heap Sort Time taken = " + (end4 - start4));
+        long start4 = System.currentTimeMillis();
+        heapSort(input);
+        long end4 = System.currentTimeMillis();
+        System.out.println("Heap Sort Time taken = " + (end4 - start4));
 //
 //        input = getRandomArray();
 //        long start5 = System.currentTimeMillis();
@@ -81,7 +81,7 @@ public class SortingTest {
         }
     }//end of method
 
-    static void merge(Integer[] A, int left, int middle, int right) {
+    private static void merge(Integer[] A, int left, int middle, int right) {
 
         int [] leftTmpArray = new int[middle-left+2];  //Create tmp arrays
         int [] rightTmpArray = new int[right-middle+1];
@@ -122,36 +122,45 @@ public class SortingTest {
 
 
 
-    static int total;
     static void heapSort(Comparable[] arr) {
-        total = arr.length - 1;
-        for (int i = total / 2; i >= 0; i--)
-            heapify(arr, i);
-        for (int i = total; i > 0; i--) {
+        int n = arr.length - 1;
+
+        // bring the max to front, by heapfying the half numbers
+        for (int i = n / 2; i >= 0; i--)
+            heapify(arr, n, i);
+
+        // move the max - which is at 0 index, to the last
+        // and perform heapify on remaining size
+        for (int i = n; i > 0; i--) {
             swap(arr, 0, i);
-            total--;
-            heapify(arr, 0);
+            n--;
+            heapify(arr, n,0);
         }
     }
+    private static void heapify(Comparable[] arr, int n, int i) {
+        // get the max of N - L,R
+        // if found
+        // swap N-L/R and heapify the swapped value index
+        int C = i;
 
-    static void heapify(Comparable[] arr, int i) {
-        int lft = 2*i;
-        int rgt = (2*i) + 1;
-        int grt = i;
-        if (lft <= total && arr[lft].compareTo(arr[grt]) >= 0)
-            grt = lft;
-        if (rgt <= total && arr[rgt].compareTo(arr[grt]) >= 0)
-            grt = rgt;
-        if (grt != i) {
-            swap(arr, i, grt);
-            heapify(arr, grt);
+        int L = 2*i;
+        if (L <= n && arr[L].compareTo(arr[C]) >= 0)
+            C = L;
+
+        int R = (2*i) + 1;
+        if (R <= n && arr[R].compareTo(arr[C]) >= 0)
+            C = R;
+
+        if (C != i) {
+            swap(arr, i, C);
+            heapify(arr, n, C);
         }
-    }
 
-    static void swap(Comparable[] arr, int a, int b) {
-        Comparable temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
+    }
+    private static void swap(Comparable[] arr, int i, int j) {
+        Comparable temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
 

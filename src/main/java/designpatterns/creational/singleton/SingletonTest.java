@@ -1,4 +1,4 @@
-package com.examples.singleton;
+package designpatterns.creational.singleton;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -259,7 +259,7 @@ public class BST_LL {
 				// if nodeToBeDeleted have both children
 				BinaryNode temp = root;
 				// Finding minimum element from right subtree
-				BinaryNode minNodeForRight = minimumElement(temp.getRight());
+				BinaryNode minNodeForRight = inorderSucessor(temp.getRight());
 				// Replacing current node with minimum node from right subtree
 				root.setValue(minNodeForRight.getValue());
 				// Deleting minimum node from right now
@@ -361,11 +361,11 @@ public class BST_LL {
 	}
 
 	// Get minimum element in binary search tree - its the left most value
-	public static BinaryNode minimumElement(BinaryNode root) {
+	public static BinaryNode inorderSucessor(BinaryNode root) {
 		if (root.getLeft() == null)
 			return root;
 		else
-			return minimumElement(root.getLeft());
+			return inorderSucessor(root.getLeft());
 	}// end of method
 
 	//Helper function to find least value node in right-subtree of currentNode

@@ -38,20 +38,18 @@ class CheckCycle {
     stackFlag[v] = true;
 
     // check adjacency list of the node
-    LinkedList.Node temp = null;
-    if (g.array[v] != null)
-          temp = g.array[v].headNode;
-
-    while (temp != null) {
-      //run cyclic function recursively on each outgowing path
-      if(cyclic(g, temp.data, visited, stackFlag)){
-        return true;
+    if (g.array[v] != null){
+      LinkedList.Node temp = g.array[v].headNode;
+      while (temp != null) {
+        //run cyclic function recursively on each outgowing path
+        if(cyclic(g, temp.data, visited, stackFlag)){
+          return true;
+        }
+        temp = temp.next;
       }
-      temp = temp.next;
     }
     stackFlag[v] = false;
-    
-    return false;    
+    return false;
   }
   
   public static void main(String args[]) {

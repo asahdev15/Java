@@ -1,4 +1,5 @@
-package battleships;
+package xchallenges.battleships;
+
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package battleships;
+package xchallenges.battleships;
 
 class ConstraintFailedException extends Exception{
 

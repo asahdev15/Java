@@ -1,4 +1,4 @@
-package battleships;
+package xchallenges.battleships;
 
 import java.util.HashMap;
 import java.util.Map;

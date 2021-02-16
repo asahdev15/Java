@@ -26,7 +26,8 @@ public class QueueTest {
 
     private static void priorityQueue(){
         System.out.println("prority queue for ints with natural ordering");
-        Queue<Integer> qp = new PriorityQueue<Integer>();
+//        Queue<Integer> qp = new PriorityQueue<Integer>(); // increasing order -> min heap
+        Queue<Integer> qp = new PriorityQueue<Integer>((a,b)->(b-a)); // decreasing order -> max heap
         qp.offer(15);
         qp.offer(11);
         qp.offer(10);
@@ -37,34 +38,34 @@ public class QueueTest {
         }
 
 
-        System.out.println("\nprority queue for students with default comparable ordering - age");
-        Queue<Student> q2 = new PriorityQueue<Student>();
-        q2.add(new Student("A", 1));
-        q2.add(new Student("C", 3));
-        q2.add(new Student("B", 2));
-        q2.add(new Student("B", 22));
-        System.out.println(q2.toString());
-        while(!q2.isEmpty()){
-            System.out.println(q2.poll());
-        }
-
-
-        System.out.println("\nprority queue for students with comparator ordering - name");
-        Comparator<Student> idComparator = new Comparator<Student>(){
-            @Override
-            public int compare(Student c1, Student c2) {
-                return -c1.name.compareTo(c2.name);
-            }
-        };
-        Queue<Student> q3 = new PriorityQueue<Student>(idComparator);
-        q3.add(new Student("A", 1));
-        q3.add(new Student("C", 3));
-        q3.add(new Student("B", 2));
-        q3.add(new Student("B", 22));
-        System.out.println(q3.toString());
-        while(!q3.isEmpty()){
-            System.out.println(q3.poll());
-        }
+//        System.out.println("\nprority queue for students with default comparable ordering - age");
+//        Queue<Student> q2 = new PriorityQueue<Student>();
+//        q2.add(new Student("A", 1));
+//        q2.add(new Student("C", 3));
+//        q2.add(new Student("B", 2));
+//        q2.add(new Student("B", 22));
+//        System.out.println(q2.toString());
+//        while(!q2.isEmpty()){
+//            System.out.println(q2.poll());
+//        }
+//
+//
+//        System.out.println("\nprority queue for students with comparator ordering - name");
+//        Comparator<Student> idComparator = new Comparator<Student>(){
+//            @Override
+//            public int compare(Student c1, Student c2) {
+//                return -c1.name.compareTo(c2.name);
+//            }
+//        };
+//        Queue<Student> q3 = new PriorityQueue<Student>(idComparator);
+//        q3.add(new Student("A", 1));
+//        q3.add(new Student("C", 3));
+//        q3.add(new Student("B", 2));
+//        q3.add(new Student("B", 22));
+//        System.out.println(q3.toString());
+//        while(!q3.isEmpty()){
+//            System.out.println(q3.poll());
+//        }
 
     }
 

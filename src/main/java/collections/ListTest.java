@@ -1,9 +1,6 @@
 package collections;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ListTest {
@@ -21,9 +18,11 @@ public class ListTest {
         System.out.println(list.toString());
         list.remove("4");
         list.remove(0);
+        list.toArray(new Double[4]);
         System.out.println(list.toString());
 
     }
+
 
     private static void linkedList(){
         List<String> list = new LinkedList<String>();//creating linkedlist

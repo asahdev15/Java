@@ -1,4 +1,4 @@
-package battleships;
+package xchallenges.battleships;
 
 public class BattleShipGame {
 

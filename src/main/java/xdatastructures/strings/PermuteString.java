@@ -2,6 +2,7 @@ package xdatastructures.strings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 class PermuteString{
@@ -9,7 +10,7 @@ class PermuteString{
 
 
   public static void main(String[] args) {
-    String input = "abc";
+    String input = "abcd";
     System.out.println("All permutations of " + input);
     long start = System.currentTimeMillis();
     List<String> result = permuteString(input);
@@ -22,8 +23,27 @@ class PermuteString{
     result2.addAll(allPerms(input, new ArrayList<>()));
     System.out.println("Time Taken : (ms) " + (System.currentTimeMillis() - start));
     System.out.println(Arrays.toString(result2.toArray()));
+
+
+    List<String> result3 = new ArrayList<>();
+    start = System.currentTimeMillis();
+    result3.addAll(findPermute(new String(), input));
+    System.out.println("Time Taken : (ms) " + (System.currentTimeMillis() - start));
+    System.out.println(Arrays.toString(result3.toArray()));
   }
 
+  private static List<String> findPermute(String value, String input){
+    List<String> result = new LinkedList<>();
+    if(input.isEmpty()){
+      result.add(value);
+    }
+    for(int i = 0; i<input.length(); i++){
+      String newValue = value + input.charAt(i);
+      String newInput = input.substring(0,i)+input.substring(i+1,input.length());
+      result.addAll(findPermute(newValue, newInput));
+    }
+    return result;
+  }
 
   static List<String> permuteString(String input) {
     permuteString(input.toCharArray(), 0);
